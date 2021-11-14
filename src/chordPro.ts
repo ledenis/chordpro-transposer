@@ -4,10 +4,13 @@ export function transposeChordpro(
   preferFlat: boolean
 ) {
   const bracketChordsReplaced = chordpro.replace(
-    /\[([A-G][#b]?)([A-Za-z0-9]*)\]/g,
-    (_match, chordNote, chordQuality) => {
+    /\[([A-G][#b]?)([A-Za-z0-9]*)(\/([A-G][#b]?))?\]/g,
+    (_match, chordNote, chordQuality, _slashBass, bassNote) => {
       const transposedNote = transpose(chordNote, increment, preferFlat);
-      return `[${transposedNote}${chordQuality}]`;
+      const transposedBass = bassNote
+        ? '/' + transpose(bassNote, increment, preferFlat)
+        : '';
+      return `[${transposedNote}${chordQuality}${transposedBass}]`;
     }
   );
 
