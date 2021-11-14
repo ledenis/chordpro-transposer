@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/chordpro-transposer/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/chordpro-transposer/static/js/main.67598028.chunk.js",
+    "main.js.map": "/chordpro-transposer/static/js/main.67598028.chunk.js.map",
+    "runtime-main.js": "/chordpro-transposer/static/js/runtime-main.ddf15ace.js",
+    "runtime-main.js.map": "/chordpro-transposer/static/js/runtime-main.ddf15ace.js.map",
+    "static/js/2.be4cd4f7.chunk.js": "/chordpro-transposer/static/js/2.be4cd4f7.chunk.js",
+    "static/js/2.be4cd4f7.chunk.js.map": "/chordpro-transposer/static/js/2.be4cd4f7.chunk.js.map",
+    "static/js/3.d31057e7.chunk.js": "/chordpro-transposer/static/js/3.d31057e7.chunk.js",
+    "static/js/3.d31057e7.chunk.js.map": "/chordpro-transposer/static/js/3.d31057e7.chunk.js.map",
+    "index.html": "/chordpro-transposer/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/chordpro-transposer/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.be4cd4f7.chunk.js.LICENSE.txt": "/chordpro-transposer/static/js/2.be4cd4f7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ddf15ace.js",
+    "static/js/2.be4cd4f7.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.67598028.chunk.js"
+  ]
+}
