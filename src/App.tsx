@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 import sample from './sample';
 import { transposeChordpro } from './chordPro';
 
 function App() {
   const [chordpro, setChordpro] = useState(sample);
   const [preferFlat, setPreferFlat] = useState(false);
+  const [sourceUrl, setSourceUrl] = useState('');
 
   function handleTranspose(increment: number) {
     const transposed = transposeChordpro(chordpro, increment, preferFlat);
@@ -16,6 +17,25 @@ function App() {
 
     const transposed = transposeChordpro(chordpro, 0, preferFlat);
     setChordpro(transposed);
+  }
+
+  async function handleLoadFromUrl(event: FormEvent) {
+    event.preventDefault();
+    let response;
+    try {
+      response = await fetch(
+        '/api/load?sourceUrl=' + encodeURIComponent(sourceUrl)
+      );
+    } catch (error) {
+      console.warn('Failed to load from url', error);
+      return;
+    }
+    if (response.ok) {
+      const loadedChordPro = await response.text();
+      setChordpro(loadedChordPro);
+    } else {
+      console.warn('Failed to load from url');
+    }
   }
 
   return (
@@ -31,6 +51,16 @@ function App() {
           />
           Prefer flats ♭
         </label>
+        <form onSubmit={handleLoadFromUrl}>
+          <label>
+            Load from URL
+            <input
+              value={sourceUrl}
+              onChange={(event) => setSourceUrl(event.target.value)}
+            />
+          </label>
+          <button>Load</button>
+        </form>
       </div>
       <textarea
         value={chordpro}
