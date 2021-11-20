@@ -14,13 +14,15 @@ export function transposeChordpro(
     }
   );
 
-  return bracketChordsReplaced.replace(
-    /{key:([A-G][#b]?)(m?)}/g,
+  const keyDirectiveReplaced = bracketChordsReplaced.replace(
+    /{key: *([A-G][#b]?)(m?)}/g,
     (_match, chordNote, chordQuality) => {
       const transposedNote = transpose(chordNote, increment, preferFlat);
       return `{key:${transposedNote}${chordQuality}}`;
     }
   );
+
+  return keyDirectiveReplaced;
 }
 
 function transpose(note: string, increment: number, preferFlat: boolean) {
